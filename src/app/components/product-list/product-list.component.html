@@ -1,0 +1,22 @@
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+          <th></th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>In-stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products" class="align-middle">
+            <td>
+                <img src="{{ product.imageUrl }}" height="75px" width="75px"/>
+            </td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.unitPrice | currency: 'USD'}}</td>
+            <td class="{{ product.unitsInStock > 0 ? 'table-success' : 'table-danger' }}">
+                {{ product.unitsInStock > 0 ? 'Yes' : 'No' }}
+            </td>
+        </tr>
+    </tbody>
+</table>
